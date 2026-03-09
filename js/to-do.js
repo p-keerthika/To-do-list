@@ -66,6 +66,29 @@ function displayTasks() {
     updateCount();
 }
 
+function searchTask(){
+
+    let value = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let items = document.querySelectorAll("#taskList li");
+
+    items.forEach(function(item){
+
+        let text = item.innerText.toLowerCase();
+
+        if(text.includes(value)){
+            item.style.display = "flex";
+        } else {
+            item.style.display = "none";
+        }
+
+    });
+
+}
+
 function toggleTask(index){
     tasks[index].completed =
         !tasks[index].completed;
